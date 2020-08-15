@@ -1,0 +1,565 @@
+<html>
+<style>
+  .logo {
+  font-size: 68px;
+  color: #669bc3;
+  font-weight: 600;
+  text-align: center;
+  height: 80px;
+  line-height: 68px;
+  letter-spacing: 8px;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+   rgba(238, 210, 111, 1) 0%,
+rgba(238, 210, 111, 1) 20%,
+rgba(238, 210, 111, 1) 30%,
+rgba(238, 210, 111, 1) 70%,
+rgba(168, 210, 234, 1) 100%
+  );
+}
+
+body {
+  background-color: #a8d2ea;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#bodybox {
+  margin: auto;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  transition: 0.3s;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  position: absolute;
+left: 10px;
+  width: 300px;
+   height: 300px;
+}
+
+.base-header {
+  position: relative;
+  display: flex;
+  height: 200px;
+  flex-shrink: 0;
+  width: 100%;
+  transition: 0.3s;
+  * {
+    transition: 0.3s;
+  }
+}
+
+.base-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  height: 160px;
+  top: -20%;
+  left: 0;
+  will-change: top;
+  background-size: cover;
+  background-position: center;
+  filter: blur(30px);
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
+.base-avatar {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 70%;
+  object-position: center;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-64px);
+}
+
+.base-fullname {
+  position: absolute;
+  bottom: 0;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateY(-10px) translateX(-50%);
+  left: 50%;
+   
+}
+
+.headersubtitle {
+  position: absolute;
+  bottom: 0;
+  left: 150px;
+  font-size: 16px;
+  white-space: nowrap;
+  font-weight: 500;
+  opacity: 1;
+  letter-spacing: 1px;
+  margin: 0;
+  transform: translateX(-50%) translateY(-7px);
+ }
+
+.base-content {
+  padding: 20px;
+}
+
+.main-container {
+  padding: 20px;
+  flex-grow: 1;
+  background-color:  #a8d2ea;
+  width: 1100px;
+  position: absolute;
+  right: 10px;
+}
+
+.profile {
+  position: relative;
+  height: 40vh;
+  
+  min-height: 250px;
+  max-height: 350px;
+  z-index: 1;
+}
+.profile-cover {
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+  }
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(50px);
+    opacity: 0.7;
+  }
+}
+
+.profile-menu {
+  position: absolute;
+  bottom: 0;
+  padding-left: 200px;
+  background: $bg-color;
+  width: 100%;
+  display: flex;
+  border-radius: 0 0 4px 4px;
+}
+
+.profile-menu-link {
+  padding: 20px 16px;
+  color: $side-title;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &.active,
+  &:hover {
+    color: #fff;
+    background-color: #a8d2ea;
+    border-bottom: 3px solid #669bc3;
+  }
+}
+
+.second {
+  margin: auto;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  transition: 0.3s;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  position: absolute;
+    width: 1100px;
+      height: 355px
+}
+
+.second-rightname {
+  position: absolute;
+  top: 0;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  transform: translateY(-10px) translateX(-50%);
+  left: 75%;
+  
+}
+  
+.second-leftname {
+  position: absolute;
+  top: 0;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  transform: translateY(-10px) translateX(-50%);
+  left: 25%;
+}
+
+.second-main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  padding-top: 10px;
+  flex-direction: column;
+}
+
+.second-content {
+ position: absolute;
+  top: 40px;
+  left: 40%
+}
+.custom-option {
+    position: relative;
+    display: block;
+    padding: 0 22px;
+    border-bottom: 1px solid #669bc3;
+    font-size: 12px;
+    font-weight: 600;
+    color: #eed26fff;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+	visibility: visible;
+}
+.custom-option:hover,
+   .custom-option.selection {
+    background: #eed26fff;
+    color: #669bc3
+}
+   
+.skillset {
+  position: absolute;
+  display: inline-block;
+  top: 80px; left: 25%;
+  transform: translate(-50%, -50%);
+}
+  
+.button {
+    position: absolute;
+	left: 22%;
+    top: 150px;
+	text-align: center;
+	border-radius: 10% / 50%;;
+	padding: 5px 0;
+}
+  
+.second-fullname {
+  position: absolute;
+  top: 50px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  transform: translateY(-10px) translateX(-50%);
+  left: 75%;
+  z-index: 1
+}
+ 
+.result-font {
+  font-size: 20px;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 1px; 
+  color: #669bc3;
+  text-align: left;
+  width: 900px;
+  word-wrap: break-word;
+}
+ 
+</style>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+	var jobLists = new Array(5) 
+	jobLists["empty"] = ["Select a Skillset"]; 
+	jobLists["Multilingual Literacy"] = ["Translating Text Articles or Closed Captioning"]; 
+	jobLists["Writing and Editing"] = ["Creating and Running a Blog"]; 
+	jobLists["Social Media Marketing"]= ["Becoming a Social Media Influencer"]; 
+	jobLists["Information Analysis"]= ["Growth Analyst for Virtual Startups or COVID-19 Statistic Analyst"]; 
+	 
+	function myFunction() {
+    
+        if ((existingDiv = document.getElementById("d")) != null) {
+			existingDiv.parentNode.removeChild(existingDiv);
+		}
+
+		var existingSelection;
+		while ((existingSelection = document.getElementById("n")) != null) {
+			existingSelection.parentNode.removeChild(existingSelection);
+		}
+
+		var jSelect = document.getElementById("result"); 
+		
+		var jobs = [];
+		$.each($(".custom-option option:selected"), function(){            
+			jobs.push(jobLists[$(this).val()]);
+				
+		});
+	// create new div	
+        newDiv = document.createElement("div"); 
+        newDiv.setAttribute('id', "d");
+		newDiv.setAttribute('class', "second-fullname");
+        try { 
+			 jSelect.add(newDiv);  // this will fail in DOM browsers but is needed for IE 
+			} 
+			catch (e) { 
+			 jSelect.appendChild(newDiv); 
+			} 
+        var jDivSelect = document.getElementById("d");  
+		var newSelection; 
+
+	// create new selection
+		for (var j=0; j<jobs.length; j++) {
+			jList = jobs[j];
+			newSelection = document.createElement("P"); 
+			newSelection.setAttribute('id', "n");
+			newSelection.setAttribute('class', "result-font");
+			newSelection.innerHTML = jList;
+		  
+			try { 
+			 jDivSelect.add(newSelection);  // this will fail in DOM browsers but is needed for IE 
+			} 
+			catch (e) { 
+			 jDivSelect.appendChild(newSelection); 
+			} 
+		}
+
+	}
+
+
+	</script>
+	<body style="background-color:#a8d2ea;"> <div class="logo">Covid-19 Careers</div>
+	<br>
+	<div id='bodybox'>
+	  <div class="base-header">
+		<div class="base-cover" style="background-image: url('https://previews.dropbox.com/p/thumb/AA7nx4KgDcLO3htXF6Vy7F-sk39HtSH_meDbLbZQmAfUDrhT5QAmfbo_NAPRWNx882dvb7kpQRxYTs_BXiP27Y5Bz5gHVwJkG9Xsj45ZsWE7ANpSkEtvFfqJg11HzlhnoS48Bz0v1eJqqYt7_3tEJf0vjZgXyBCCKTwnCGX_WtnuIFsLgSl7EYJeIn0nDwDxH_QNL9yJFaykEqiGUqLFPGLZ1H2A28zEGzZORAsX0_xGEXZTyBvwRbT_t4apmxGKmF06Q-rLadb42S6FgSZMkG5mR-8WiFAyCF-0D9cysp7y2i_9nRUsX82KJf5YBX7R_Hapi5eBeDG7QQe1u0QbpOxgj6A7PfnHc0PcRGCBZolKq3DzZ0pH2Z-cgstgOC5-SA4/p.png?fv_content=true&size_mode=5')"></div>
+		<img class="base-avatar" src="https://previews.dropbox.com/p/thumb/AA7nx4KgDcLO3htXF6Vy7F-sk39HtSH_meDbLbZQmAfUDrhT5QAmfbo_NAPRWNx882dvb7kpQRxYTs_BXiP27Y5Bz5gHVwJkG9Xsj45ZsWE7ANpSkEtvFfqJg11HzlhnoS48Bz0v1eJqqYt7_3tEJf0vjZgXyBCCKTwnCGX_WtnuIFsLgSl7EYJeIn0nDwDxH_QNL9yJFaykEqiGUqLFPGLZ1H2A28zEGzZORAsX0_xGEXZTyBvwRbT_t4apmxGKmF06Q-rLadb42S6FgSZMkG5mR-8WiFAyCF-0D9cysp7y2i_9nRUsX82KJf5YBX7R_Hapi5eBeDG7QQe1u0QbpOxgj6A7PfnHc0PcRGCBZolKq3DzZ0pH2Z-cgstgOC5-SA4/p.png?fv_content=true&size_mode=5" alt="avatar" />
+		<h1 class="base-fullname">Covid-19 Careers</h1>
+		<h2 class="headersubtitle">Find opportunities to pursue remotely!</h2>
+	  </div>
+      <div class="base-content"></div>
+	</div>
+      
+    <div class="main-container">
+    <div class="profile"></div>  
+    <div>   <img src="https://previews.dropbox.com/p/thumb/AA43NQl-rf_8DJiDogpRvbZnlKuSJUiR8V_OsxJxKzXE6wRHid6nTwH1qnYvw3w2SsDJa16u-ACJPSH2pOjAcUflr8DSAX1jWUpkeR3xTiv0S_AQXXpD3dxWC-opaJ1fCH2556vg6x5c4BzFi5QPyzO7OyC1LL64iqwTxE_P1j6UDVZ_XzQHdAPv4icyRtd1YsNJ0Y8wha8keXcUaI1Le5P41cCdcK64hPbJRNREAqNRqSlpXlN7WpOA_mvO1YdPmHbd7mkECxx3SImQVNK38EHUMcjlyvSF8dYwM2jUyeTM_wiPs8HqJQftSG6bEfYmJ1A-sKjXE5S7zuCr61iAohNRhpT6TOz0m3F6TYdlxciCEW6Fa1N3gvDi14251LtoKc0/p.png?fv_content=true&size_mode=5" alt="" class="profile-cover"></div>
+    <div class="second">
+		<h1 class="second-leftname">Skill Selection</h1>
+	<form>
+		<div class="skillset"> 
+			<select name="sources" id="sources" class="custom-option" placeholder="skillset" multiple="multiple" size="4"> 
+				<option>Information Analysis</option> 
+				<option>Multilingual Literacy</option> 
+				<option>Writing and Editing</option>
+				<option>Social Media Marketing</option>
+		    </select>
+		</div>
+
+		<div class = button>  
+			<button type="button" onclick="myFunction()">Submit</button>
+		</div>
+	 </form>
+	<div>    
+		<h1 class="second-rightname">Instructions</h1>
+   
+		<div class="second-content">
+			Click the dropdown menus, select the skillsets that you possess, then press the Submit button.
+		</div>
+	</div>
+    <div class = "second-fullname">
+        <h1 class="second-fullname" id="result">You may be interested in:</h1> 
+	
+	</div>
+    </div>
+	</div>
+  
+<script type="text/javascript">
+	var colour="#669bc3";
+	var sparkles=120;
+	var x=ox=400;
+	var y=oy=300;
+	var swide=800;
+	var shigh=600;
+	var sleft=sdown=0;
+	var tiny=new Array();
+	var star=new Array();
+	var starv=new Array();
+	var starx=new Array();
+	var stary=new Array();
+	var tinyx=new Array();
+	var tinyy=new Array();
+	var tinyv=new Array();
+
+	window.onload=function() { if (document.getElementById) {
+	  var i, rats, rlef, rdow;
+	  for (var i=0; i<sparkles; i++) {
+		var rats=createDiv(3, 3);
+		rats.style.visibility="hidden";
+		document.body.appendChild(tiny[i]=rats);
+		starv[i]=0;
+		tinyv[i]=0;
+		var rats=createDiv(5, 5);
+		rats.style.backgroundColor="transparent";
+		rats.style.visibility="hidden";
+		var rlef=createDiv(1, 5);
+		var rdow=createDiv(5, 1);
+		rats.appendChild(rlef);
+		rats.appendChild(rdow);
+		rlef.style.top="2px";
+		rlef.style.left="0px";
+		rdow.style.top="0px";
+		rdow.style.left="2px";
+		document.body.appendChild(star[i]=rats);
+	  }
+	  set_width();
+	  sparkle();
+	}}
+
+	function sparkle() {
+	  var c;
+	  if (x!=ox || y!=oy) {
+		ox=x;
+		oy=y;
+		for (c=0; c<sparkles; c++) if (!starv[c]) {
+		  star[c].style.left=(starx[c]=x)+"px";
+		  star[c].style.top=(stary[c]=y)+"px";
+		  star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+		  star[c].style.visibility="visible";
+		  starv[c]=50;
+		  break;
+		}
+	  }
+	  for (c=0; c<sparkles; c++) {
+		if (starv[c]) update_star(c);
+		if (tinyv[c]) update_tiny(c);
+	  }
+	  setTimeout("sparkle()", 40);
+	}
+
+	function update_star(i) {
+	  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+	  if (starv[i]) {
+		stary[i]+=1+Math.random()*3;
+		if (stary[i]<shigh+sdown) {
+		  star[i].style.top=stary[i]+"px";
+		  starx[i]+=(i%5-2)/5;
+		  star[i].style.left=starx[i]+"px";
+		}
+		else {
+		  star[i].style.visibility="hidden";
+		  starv[i]=0;
+		  return;
+		}
+	  }
+	  else {
+		tinyv[i]=50;
+		tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+		tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+		tiny[i].style.width="2px";
+		tiny[i].style.height="2px";
+		star[i].style.visibility="hidden";
+		tiny[i].style.visibility="visible"
+	  }
+	}
+
+	function update_tiny(i) {
+	  if (--tinyv[i]==25) {
+		tiny[i].style.width="1px";
+		tiny[i].style.height="1px";
+	  }
+	  if (tinyv[i]) {
+		tinyy[i]+=1+Math.random()*3;
+		if (tinyy[i]<shigh+sdown) {
+		  tiny[i].style.top=tinyy[i]+"px";
+		  tinyx[i]+=(i%5-2)/5;
+		  tiny[i].style.left=tinyx[i]+"px";
+		}
+		else {
+		  tiny[i].style.visibility="hidden";
+		  tinyv[i]=0;
+		  return;
+		}
+	  }
+	  else tiny[i].style.visibility="hidden";
+	}
+
+	document.onmousemove=mouse;
+	function mouse(e) {
+	  set_scroll();
+	  y=(e)?e.pageY:event.y+sdown;
+	  x=(e)?e.pageX:event.x+sleft;
+	}
+
+	function set_scroll() {
+	  if (typeof(self.pageYOffset)=="number") {
+		sdown=self.pageYOffset;
+		sleft=self.pageXOffset;
+	  }
+	  else if (document.body.scrollTop || document.body.scrollLeft) {
+		sdown=document.body.scrollTop;
+		sleft=document.body.scrollLeft;
+	  }
+	  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+		sleft=document.documentElement.scrollLeft;
+		sdown=document.documentElement.scrollTop;
+	  }
+	  else {
+		sdown=0;
+		sleft=0;
+	  }
+	}
+
+	window.onresize=set_width;
+	function set_width() {
+	  if (typeof(self.innerWidth)=="number") {
+		swide=self.innerWidth;
+		shigh=self.innerHeight;
+	  }
+	  else if (document.documentElement && document.documentElement.clientWidth) {
+		swide=document.documentElement.clientWidth;
+		shigh=document.documentElement.clientHeight;
+	  }
+	  else if (document.body.clientWidth) {
+		swide=document.body.clientWidth;
+		shigh=document.body.clientHeight;
+	  }
+	}
+
+	function createDiv(height, width) {
+	  var div=document.createElement("div");
+	  div.style.position="absolute";
+	  div.style.height=height+"px";
+	  div.style.width=width+"px";
+	  div.style.overflow="hidden";
+	  div.style.backgroundColor=colour;
+	  return (div);
+	}
+
+ </script>
+</html> 
+
+
